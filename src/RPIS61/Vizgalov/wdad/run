@@ -1,0 +1,6 @@
+#!/bin/bash
+dir="../../../"
+name="RPIS61.Vizgalov.wdad.Application"
+echo "run $name"
+java -classpath $dir $name
+echo ""
