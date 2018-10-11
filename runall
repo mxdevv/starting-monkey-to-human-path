@@ -1,0 +1,23 @@
+#/bin/bash
+#find ./src -type d -execdir ./run \;
+
+#cd ./src
+#find -type f -name 'run' -exec bash -c 'cd "$(dirname "{}")" && ./run' \;
+
+#cd ./src
+#while [ -n "$1" ]
+#do
+#	echo $1
+#	find -type f -name $1 -exec bash -c 'cd "$(dirname "{}")" && ./run' \;
+#	shift
+#done
+
+cd ./src
+if [ -n "$1" ]; then
+	while [ -n "$1" ]; do
+		find -type f -name $1 -exec bash -c 'cd "$(dirname "{}")" && ./run' \;
+		shift
+	done
+else
+	find -type f -name 'run' -exec bash -c 'cd "$(dirname "{}")" && ./run' \;
+fi
