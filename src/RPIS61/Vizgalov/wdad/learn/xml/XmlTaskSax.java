@@ -36,7 +36,7 @@ public class XmlTaskSax {
 				@Override
 				public void startElement(String uri, String localName, String qName,
 						Attributes attributes) throws SAXException {
-					if (qName.equalsIgnoreCase("salary")) {
+					if (qName.equals("salary")) {
 						salary = true;
 					}
 				}
@@ -46,8 +46,15 @@ public class XmlTaskSax {
 						throws SAXException {
 					if (salary) {
 						salaries.add(new Integer(new String(ch, start, length)));
-						salary = false;
 					} 
+				}
+				
+				@Override
+				public void endElement(String uri, String localName, String qName)
+						throws SAXException {
+					if (qName.equals("salary")) {
+						salary = false;
+					}
 				}
 			};
 			saxParser.parse(fileName, salaryAverageHandler);
@@ -68,34 +75,38 @@ public class XmlTaskSax {
 		try {
 			salaryAverageHandler = new DefaultHandler() {
 				boolean salary = false;
-				boolean necessaryDepartment = false;
+				boolean neccessaryDepartment = false;
 
 				@Override
 				public void startElement(String uri, String localName, String qName,
 						Attributes attributes) throws SAXException {
-					if (qName.equalsIgnoreCase("salary")) {
+					if (qName.equals("salary")) {
 						salary = true;
 					}
-					if (qName.equalsIgnoreCase("department")
-							&& attributes.getValue("name").equals(departmentName)) {
-						necessaryDepartment = true;
+					else if (qName.equals("department")) {
+						for(int i = 0; i < attributes.getLength(); i++)
+							if (attributes.getQName(i).equals("name")
+									&& attributes.getValue(i).equals(departmentName))
+								neccessaryDepartment = true;
 					}
 				}
 
 				@Override
 				public void characters(char ch[], int start, int length)
 						throws SAXException {
-					if (necessaryDepartment && salary) {
+					if (salary && neccessaryDepartment) {
 						salaries.add(new Integer(new String(ch, start, length)));
-						salary = false;
 					} 
 				}
 
 				@Override
 				public void endElement(String uri, String localName, String qName)
 						throws SAXException {
-					if (qName.equalsIgnoreCase("department")) {
-						necessaryDepartment = false;
+					if (qName.equals("department")) {
+						neccessaryDepartment = false;
+					}
+					else if (qName.equals("salary")) {
+						salary = false;
 					}
 				}
 			};

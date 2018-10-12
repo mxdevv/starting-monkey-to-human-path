@@ -11,9 +11,8 @@ public class XmlTest {
 		XmlTaskSax xmlTaskSax = new XmlTaskSax();
 		System.out.println("Salary average: " + xmlTaskSax.salaryAverage());
 		
-		// Throw exception: java.lang.NumberFormatException: For input string: "
-		//System.out.println("Salary average in \"Department 1.2\": "
-		//		+ xmlTaskSax.salaryAverage("Department 1.2"));
+		System.out.println("Salary average in \"Department 1.2\": "
+				+ xmlTaskSax.salaryAverage("Department 1.2"));
 		
 		// Throw exception: java.lang.UsupportedOperationException: SAX can't write.
 		//xmlTaskSax.setJobTitle("firstname 1.1.4", "secondname 1.1.4", "engineer");
