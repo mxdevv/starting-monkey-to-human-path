@@ -22,6 +22,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
 
 import org.xml.sax.SAXException;
 
@@ -98,6 +99,7 @@ public class PreferencesManager {
 	}
 
 	// Не работает, так как надо
+	// * Следует проверить алгоритм на то, какие ноды остаются в очереди
 	public Properties getProperties() {
 		Node node = document.getDocumentElement();
 		String name;
@@ -135,12 +137,24 @@ public class PreferencesManager {
 		return prop;
 	}
 
+	// Я не понял, что это и просто списал
 	public void addBindedObject(String name, String className) {
-		;
+		Element element = document.createElement("bindedobject");
+		element.setAttribute("name", name);
+		element.setAttribute("class", className);
+		document.getElementsByTagName("server").item(0).appendChild(element);
 	}
 
+	// тоже списал
 	public void removeBindedObject(String name) {
-		;
+		NodeList nodeList = document.getElementsByTagName("bindedobject");
+		for(int i = 0; i < nodeList.getLength(); i++) {
+			Element element = (Element)nodeList.item(i);
+			if (element.getAttribute("name").equals(name)) {
+				element.getParentNode().removeChild(element);
+			}
+		}
+		writeXml();
 	}
 
 	@Deprecated

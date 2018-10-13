@@ -43,5 +43,8 @@ public class PreferencesManagerTest {
 		Set<String> keys = prop.stringPropertyNames();
 		for(String key : keys)
 			System.out.println(key + " = " + prop.getProperty(key));
+
+		preferencesManager.addBindedObject("name 0", "class 0");
+		preferencesManager.removeBindedObject("name 0");
 	}
 }
