@@ -40,25 +40,7 @@ public class PreferencesManager {
 		return instance;
 	}
 
-	public void set(String nodeName, String newValue) {
-		try {
-			document.getElementsByTagName(nodeName).item(0).setTextContent(newValue);
-			writeXml();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	public String get(String nodeName) {
-		try {
-			return document.getElementsByTagName(nodeName).item(0).getTextContent();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/*public void setCreateRegistry(String createRegistry) {
+	public void setCreateRegistry(String createRegistry) {
 		document.getElementsByTagName("createregistry")
 				.item(0).setTextContent(createRegistry);
 		writeXml();
@@ -122,7 +104,7 @@ public class PreferencesManager {
 	public String getClassProvider() {
 		return document.getElementsByTagName("classprovider")
 				.item(0).getTextContent();
-	}*/
+	}
 
 	private void writeXml() {
 		try {
