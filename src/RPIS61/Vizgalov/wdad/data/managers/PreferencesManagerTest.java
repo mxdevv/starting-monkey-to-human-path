@@ -38,7 +38,6 @@ public class PreferencesManagerTest {
 				"appconfig.rmi.server.registry.registryport", "1050");
 		preferencesManager.setProperties(prop);
 
-		// Work, but don't right
 		prop = preferencesManager.getProperties();
 		Set<String> keys = prop.stringPropertyNames();
 		for(String key : keys)

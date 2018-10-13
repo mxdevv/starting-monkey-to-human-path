@@ -98,42 +98,28 @@ public class PreferencesManager {
 			setProperty(key, prop.getProperty(key));
 	}
 
-	// Не работает, так как надо
-	// * Следует проверить алгоритм на то, какие ноды остаются в очереди
 	public Properties getProperties() {
 		Node node = document.getDocumentElement();
 		String name;
 		NodeList nodeList;
+		Properties prop = new Properties();
 
 		Queue<Node> qNodes = new LinkedList<>();
 		Queue<String> qNames = new LinkedList<>();
-		Queue<Node> nodes = new LinkedList<>();
-		Queue<String> names = new LinkedList<>();
 		qNodes.offer(node);
 		qNames.offer(node.getNodeName());
 		while(qNodes.size() > 0) {
 			node = qNodes.poll();
 			name = qNames.poll();
+			if (node.getFirstChild() != null
+					&& node.getFirstChild().getNextSibling() == null)
+				prop.setProperty(name, node.getFirstChild().getNodeValue());
 			nodeList = node.getChildNodes();
 			for(int i = 0; i < nodeList.getLength(); i++) {
 				qNodes.offer(nodeList.item(i));
-				nodes.offer(nodeList.item(i));
 				qNames.offer(name + "." + nodeList.item(i).getNodeName());
-				names.offer(name + "." + nodeList.item(i).getNodeName());
 			}
 		}
-
-		Properties prop = new Properties();
-		while(nodes.size() > 0) {
-			node = nodes.poll();
-			name = names.poll();
-
-			if (node.getFirstChild() != null
-					&& node.getFirstChild().getNodeValue() != null) {
-				prop.setProperty(name, node.getFirstChild().getNodeValue());
-			}
-		}
-
 		return prop;
 	}
 
