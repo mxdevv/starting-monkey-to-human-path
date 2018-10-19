@@ -1,0 +1,6 @@
+#!/bin/bash
+dir="../../../../../"
+name="RPIS61.Vizgalov.wdad.learn.xml.XmlTest"
+echo "run $name"
+java -classpath $dir $name
+echo ""

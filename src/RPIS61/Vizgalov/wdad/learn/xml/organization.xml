@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<organization name="Organization 1">
+	<department name="Department 1.1">
+		<employee firstname="firstname 1.1.1" secondname="secondname 1.1.1">
+			<hiredate>10-10-2018</hiredate>
+			<salary>201050</salary>
+			<jobtitle value="assistant"/>
+		</employee>
+		
+		
+		
+		<employee firstname="firstname 1.1.3" secondname="secondname 1.1.3">
+			<hiredate>10-10-2018</hiredate>
+			<salary>201920</salary>
+			<jobtitle value="engineer"/>
+		</employee>
+		
+		<employee firstname="firstname 1.1.4" secondname="secondname 1.1.4">
+			<hiredate>10-10-2018</hiredate>
+			<salary>201925</salary>
+			<jobtitle value="manager"/>
+		</employee>
+	</department>
+	
+	
+	<department name="Department 1.2">
+		<employee firstname="firstname 1.2.1" secondname="secondname 1.2.1">
+			<hiredate>10-10-2018</hiredate>
+			<salary>202329</salary>
+			<jobtitle value="assistant"/>
+		</employee>
+		
+		<employee firstname="firstname 1.2.2" secondname="secondname 1.2.2">
+			<hiredate>10-10-2018</hiredate>
+			<salary>202336</salary>
+			<jobtitle value="secretary"/>
+		</employee>
+		
+		<employee firstname="firstname 1.2.3" secondname="secondname 1.2.3">
+			<hiredate>10-10-2018</hiredate>
+			<salary>203342</salary>
+			<jobtitle value="engineer"/>
+		</employee>
+	</department>
+	
+	
+	<department name="Department 1.3">
+		<employee firstname="firstname 1.3.1" secondname="secondname 1.3.1">
+			<hiredate>10-10-2018</hiredate>
+			<salary>202453</salary>
+			<jobtitle value="assistant"/>
+		</employee>
+		
+		<employee firstname="firstname 1.3.2" secondname="secondname 1.3.2">
+			<hiredate>10-10-2018</hiredate>
+			<salary>333333</salary>
+			<jobtitle value="assistant"/>
+		</employee>
+	</department>
+</organization>
