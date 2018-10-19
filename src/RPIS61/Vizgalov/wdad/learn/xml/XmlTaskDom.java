@@ -43,8 +43,9 @@ public class XmlTaskDom {
 
 	public int salaryAverage() {
 		ArrayList<Integer> salaries = new ArrayList<Integer>();
-		
+		//todo employeesCounter + salaryTotal instead of list
 		try {
+			//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 			Node root = document.getDocumentElement(); // <organization>
 			NodeList departments = root.getChildNodes();
 			for(int i = 0; i < departments.getLength(); i++) {
@@ -72,7 +73,7 @@ public class XmlTaskDom {
 	
 	public int salaryAverage(String departmentName) {
 		ArrayList<Integer> salaries = new ArrayList<Integer>();
-		
+		//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 		try {
 			Node root = document.getDocumentElement(); // <organization>
 			NodeList departments = root.getChildNodes();
@@ -107,7 +108,9 @@ public class XmlTaskDom {
 			average += i;
 		return average / salaries.size();
 	}
-	
+
+	//todo убери дублирование - сделай метод, возвращающий элемент - нужный employee
+	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 	public void setJobTitle(String firstName, String secondName,
 			String newJobTitle) {
 		try {
@@ -147,7 +150,8 @@ public class XmlTaskDom {
 			e.printStackTrace();
 		}
 	}
-	
+	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
+
 	public void setSalary(String firstName, String secondName, int newSalary) {
 		try {
 			Node root = document.getDocumentElement(); // <organization>
@@ -180,7 +184,7 @@ public class XmlTaskDom {
 			e.printStackTrace();
 		}
 	}
-	
+	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 	public void fireEmployee(String firstName, String secondName) {
 		try {
 			Node root = document.getDocumentElement(); // <organization>
