@@ -30,7 +30,8 @@ public class PreferencesManager {
 	static PreferencesManager instance;
 	Document document;
 	DocumentBuilder documentBuilder;
-	final String fileName =  "../../resources/configuration/appconfig.xml";
+	final String fileName = 
+			"/root/code/java/3kurs/starting-monkey-to-human-path/src/RPIS61/Vizgalov/wdad/resources/configuration/appconfig.xml";
 
 	private PreferencesManager() {
 		try {

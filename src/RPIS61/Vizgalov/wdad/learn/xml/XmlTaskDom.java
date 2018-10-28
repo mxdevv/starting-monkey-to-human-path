@@ -30,13 +30,14 @@ import org.xml.sax.SAXException;
 public class XmlTaskDom {
 	DocumentBuilder documentBuilder;
 	Document document;
-	final String fileName = "organization.xml";
+	final String filePath =
+			"/root/code/java/3kurs/starting-monkey-to-human-path/src/RPIS61/Vizgalov/wdad/learn/xml/organization.xml";
 
 	public XmlTaskDom() {
 		try {
 			documentBuilder = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder();
-			document = documentBuilder.parse(fileName);
+			document = documentBuilder.parse(filePath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -187,7 +188,7 @@ public class XmlTaskDom {
 	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 	public void fireEmployee(String firstName, String secondName) {
 		try {
-			Element employee = getEmployee(fileName, secondName);
+			Element employee = getEmployee(filePath, secondName);
 			if (employee != null)
 				employee.getParentNode().removeChild(employee);
 			writeXml();
@@ -209,7 +210,7 @@ public class XmlTaskDom {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(document);
-			StreamResult result = new StreamResult(new File(fileName));
+			StreamResult result = new StreamResult(new File(filePath));
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.transform(source, result);
 		} catch (Exception e) {
