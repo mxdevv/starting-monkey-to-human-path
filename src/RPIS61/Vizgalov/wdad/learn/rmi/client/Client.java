@@ -19,27 +19,25 @@ public class Client {
 			throws MalformedURLException, RemoteException, NotBoundException {
 	
 		try {
-		PreferencesManager preferencesManager = PreferencesManager.getInstance();
+			PreferencesManager preferencesManager = PreferencesManager.getInstance();
 
-		int port = new Integer(preferencesManager.getProperty(
-				PreferencesManagerConstants.REGISTRY_PORT));
-		String address = preferencesManager.getProperty(
-				PreferencesManagerConstants.REGISTRY_ADDRESS);
-		String policy = preferencesManager.getProperty(
-				PreferencesManagerConstants.POLICY_PATH);
-		String codeBase = preferencesManager.getProperty(
-				PreferencesManagerConstants.USE_CODE_BASE_ONLY);
-		String createRegistry = preferencesManager.getProperty(
-				PreferencesManagerConstants.CREATE_REGISTRY);
-		
-		//System.setProperty("java.security.policy", policy);
-		System.setProperty("java.rmi.sever.useCodeBaseOnly", codeBase);
+			int port = new Integer(preferencesManager.getProperty(
+					PreferencesManagerConstants.REGISTRY_PORT));
+			String address = preferencesManager.getProperty(
+					PreferencesManagerConstants.REGISTRY_ADDRESS);
+			String policy = preferencesManager.getProperty(
+					PreferencesManagerConstants.POLICY_PATH);
+			String codeBase = preferencesManager.getProperty(
+					PreferencesManagerConstants.USE_CODE_BASE_ONLY);
+			
+			System.setProperty("java.security.policy", policy);
+			System.setProperty("java.rmi.sever.useCodeBaseOnly", codeBase);
 
-		registry = LocateRegistry.getRegistry(address, port);
-		XmlDataManager xmlDataManager = (XmlDataManager) registry.lookup(
-				"XmlDataManager");
+			registry = LocateRegistry.getRegistry(address, port);
+			XmlDataManager xmlDataManager = (XmlDataManager) registry.lookup(
+					"XmlDataManager");
 
-		System.out.println(xmlDataManager.foo());
+			System.out.println(xmlDataManager.foo());
 
 		} catch (Exception e) {
 			e.printStackTrace();

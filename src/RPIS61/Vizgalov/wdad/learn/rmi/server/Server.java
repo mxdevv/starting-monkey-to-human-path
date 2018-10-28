@@ -34,7 +34,7 @@ public class Server extends UnicastRemoteObject {
 			String createRegistry = preferencesManager.getProperty(
 					PreferencesManagerConstants.CREATE_REGISTRY);
 			
-			//System.setProperty("java.security.policy", policy);
+			System.setProperty("java.security.policy", policy);
 			System.setProperty("java.rmi.sever.useCodeBaseOnly", codeBase);
 			System.setProperty("java.rmi.hostname", address);
 
@@ -45,6 +45,7 @@ public class Server extends UnicastRemoteObject {
 				registry = LocateRegistry.getRegistry(port);
 
 			XmlDataManagerImpl xmlDataManagerImpl = new XmlDataManagerImpl();
+			registry.bind(bindName, xmlDataManagerImpl);
 			preferencesManager.addBindedObject(bindName, "XmlDataManager");
 
 			System.out.println("Server start");
