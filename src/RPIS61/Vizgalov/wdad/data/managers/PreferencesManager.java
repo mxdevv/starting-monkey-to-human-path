@@ -123,7 +123,6 @@ public class PreferencesManager {
 		return prop;
 	}
 
-	// Я не понял, что это и просто списал
 	public void addBindedObject(String name, String className) {
 		Element element = document.createElement("bindedobject");
 		element.setAttribute("name", name);
@@ -131,7 +130,6 @@ public class PreferencesManager {
 		document.getElementsByTagName("server").item(0).appendChild(element);
 	}
 
-	// тоже списал
 	public void removeBindedObject(String name) {
 		NodeList nodeList = document.getElementsByTagName("bindedobject");
 		for(int i = 0; i < nodeList.getLength(); i++) {

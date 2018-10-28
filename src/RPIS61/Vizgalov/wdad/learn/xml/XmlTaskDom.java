@@ -196,6 +196,14 @@ public class XmlTaskDom {
 		}
 	}
 
+	public void add(String departmentName) {
+		Element organization = document.getDocumentElement();
+		Element department = document.createElement("department");
+		department.setAttribute("name", departmentName);
+		organization.appendChild(department);
+		writeXml();
+	}
+
 	private void writeXml() {
 		try {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
