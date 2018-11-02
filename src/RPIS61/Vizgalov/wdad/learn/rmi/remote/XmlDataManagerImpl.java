@@ -42,21 +42,8 @@ public class XmlDataManagerImpl
 	@Override
 	public void setJobTitle(Employee employee, JobTitle newJobTitle)
 			throws RemoteException {
-		String stringJobTitle = new String();
-		switch(newJobTitle) {
-			case assistant:
-				stringJobTitle = "assistant"; break;
-			case secretary:
-				stringJobTitle = "secretary"; break;
-			case engineer:
-				stringJobTitle = "engineer"; break;
-			case manager:
-				stringJobTitle = "manager"; break;
-			case head:
-				stringJobTitle = "head"; break;
-		}
 		xmlTaskDom.setJobTitle(employee.firstName, employee.secondName,
-				stringJobTitle);
+				newJobTitle.name());
 	}
 
 	@Override	
