@@ -46,7 +46,7 @@ public class XmlTaskDom {
 	public int salaryAverage() {
 		int salaryTotal = 0, employeesCounter = 0;
 		try {
-			//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
+			//fixed use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 			Element organization = document.getDocumentElement();
 			NodeList departments = organization.getElementsByTagName("department");
 			for(int i = 0; i < departments.getLength(); i++) {
@@ -54,27 +54,8 @@ public class XmlTaskDom {
 				NodeList employees = department.getElementsByTagName("employee");
 				for(int j = 0; j < employees.getLength(); j++) {
 					Element employee = (Element) employees.item(j);
-				
-					NodeList attrs = employee.getElementsByTagName("salary");
-					salaryTotal += new Integer(attrs.item(0).getTextContent());
-
-					// problem getNodeValue() return null
-					//if (employee != null) {
-					//	NodeList attrs = employee.getElementsByTagName("salary");
-					//	if (attrs != null && attrs.item(0) != null)
-					//		System.out.println(attrs
-					//				.item(0).getNodeValue());
-					//}
-					
-					// problem attr == null
-					//if (employee != null) {
-					//	Attr attr = employee.getAttributeNode("salary");
-					//	if (attr != null) {
-					//		System.out.println(attr
-					//				.getValue());
-					//	}
-					//}
-
+					salaryTotal += new Integer(employee.getElementsByTagName("salary")
+							.item(0).getTextContent());
 					employeesCounter++;
 				}
 			}
@@ -96,7 +77,8 @@ public class XmlTaskDom {
 						NodeList employees = department.getElementsByTagName("employee");
 						for(int j = 0; j < employees.getLength(); j++) {
 							Element employee = (Element) employees.item(j);
-						    Element salaryNode = (Element) employee.getElementsByTagName("salary").item(0);
+							Element salaryNode = (Element) employee
+								.getElementsByTagName("salary").item(0);
 							salaryTotal += new Integer(salaryNode.getTextContent());
 						    employeesCounter++;
 					    }
@@ -117,14 +99,10 @@ public class XmlTaskDom {
 			NodeList employees = department.getElementsByTagName("employee");
 			for(int j = 0; j < employees.getLength(); j++) {
 				Element employee = (Element) employees.item(j);
-
-                //todo same as salaryAverage()
-                if (attrFirstname != null && attrSecondname != null
-							&& attrFirstname.getNodeValue().equals(firstName)
-							&& attrSecondname.getNodeValue().equals(secondName)) {
-								return employee;
-							}
-
+				//fixed same as salaryAverage()
+				if (employee.getAttribute("firstname").equals(firstName)
+						&& employee.getAttribute("secondname").equals(secondName)
+					return employee;
 			}
 		}
 		return null;
@@ -135,30 +113,26 @@ public class XmlTaskDom {
 		try {
 			Element employee = getEmployee(firstName, secondName);
 			Element jobTitleNode = (Element) employee.getElementsByTagName("Jobtitle").item(0);
-            jobTitleNode.setAttribute("value", newJobTitle);
+			jobTitleNode.setAttribute("value", newJobTitle);
 			writeXml();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
+	//fixed use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
     //аналогично setJobTitle()
 	public void setSalary(String firstName, String secondName, int newSalary) {
 		try {
 			Element employee = getEmployee(firstName, secondName);
-			NodeList employeeProperties = employee.getChildNodes();
-			for(int k = 0; k < employeeProperties.getLength(); k++) {
-				Node employeeProperty = employeeProperties.item(k);
-				if (employeeProperty.getNodeName().equals("salary")) {
-					employeeProperty.getFirstChild().setNodeValue(String.valueOf(newSalary));
-				}
-			}
+			Element salaryNode = (Element) employee
+				.getElementsByTagName("salary").item(0);
+			salaryNode.setAttribute("salary", salary);
 			writeXml();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	//todo use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
+	//fixed use Element and his methods getElementByTagName("name"), getAttribute(), setAttribute()
 	public void fireEmployee(String firstName, String secondName) {
 		try {
 			Element employee = getEmployee(firstName, secondName);
