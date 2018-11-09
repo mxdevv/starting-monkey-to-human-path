@@ -101,7 +101,7 @@ public class XmlTaskDom {
 				Element employee = (Element) employees.item(j);
 				//fixed same as salaryAverage()
 				if (employee.getAttribute("firstname").equals(firstName)
-						&& employee.getAttribute("secondname").equals(secondName)
+						&& employee.getAttribute("secondname").equals(secondName))
 					return employee;
 			}
 		}
@@ -126,7 +126,7 @@ public class XmlTaskDom {
 			Element employee = getEmployee(firstName, secondName);
 			Element salaryNode = (Element) employee
 				.getElementsByTagName("salary").item(0);
-			salaryNode.setAttribute("salary", salary);
+			salaryNode.setAttribute("salary", Integer.toString(newSalary));
 			writeXml();
 		} catch (Exception e) {
 			e.printStackTrace();
