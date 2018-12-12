@@ -20,6 +20,7 @@ CREATE TABLE jobtitles (
 	name VARCHAR(100),
 	PRIMARY KEY(id)
 );
+
 ALTER TABLE employees
 	ADD FOREIGN KEY (jobtitles_id)
 	REFERENCES jobtitles (id);
