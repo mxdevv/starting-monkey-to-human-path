@@ -3,8 +3,8 @@
 	<rmi>
 		<server>
 			<registry>
-				<createregistry>yes</createregistry>
-				<registryaddress>127.0.0.1</registryaddress>
+				<createregistry>no</createregistry>
+				<registryaddress>100.100.100.100</registryaddress>
 				<registryport>1050</registryport>
 			</registry>
 		</server>

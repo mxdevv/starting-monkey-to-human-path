@@ -31,7 +31,7 @@ public class PreferencesManager {
 	Document document;
 	DocumentBuilder documentBuilder;
 	final String fileName = 
-			"/root/code/java/3kurs/starting-monkey-to-human-path/src/RPIS61/Vizgalov/wdad/resources/configuration/appconfig.xml";
+			"../../resources/configuration/appconfig.xml";
 
 	private PreferencesManager() {
 		try {
