@@ -45,7 +45,7 @@
 	</rmi>
 	<datasource>
 		<classname>MysqlDataSource</classname>
-		<drivertype>com.mysql.jdbc.Driver</drivertype>
+		<drivertype>jdbc</drivertype>
 		<hostName>localhost</hostName>
 		<port>3306</port>
 		<DBName>organization</DBName>
