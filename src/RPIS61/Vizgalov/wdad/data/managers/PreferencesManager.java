@@ -26,18 +26,19 @@ import org.w3c.dom.Element;
 
 import org.xml.sax.SAXException;
 
+import RPIS61.Vizgalov.wdad.utils.PathConstants;
+
 public class PreferencesManager {
 	static PreferencesManager instance;
 	Document document;
 	DocumentBuilder documentBuilder;
-	final String fileName = 
-			"../../resources/configuration/appconfig.xml";
+	final String filePath = PathConstants.APPCONFIG;
 
 	private PreferencesManager() {
 		try {
 			this.documentBuilder = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder();
-			this.document = documentBuilder.parse(fileName);
+			this.document = documentBuilder.parse(filePath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -57,7 +58,7 @@ public class PreferencesManager {
 		if (!node.getNodeName().equals(nameNodes[0]))
 			return;
 
-		cont:
+	cont:
 	 	for(int i = 1; i < nameNodes.length; i++) {	
 			NodeList nodeList = node.getChildNodes();
 			for(int j = 0; j < nodeList.getLength(); j++) {
@@ -79,7 +80,7 @@ public class PreferencesManager {
 		if (!node.getNodeName().equals(nameNodes[0]))
 			return null;
 
-		cont:
+	cont:
 	 	for(int i = 1; i < nameNodes.length; i++) {	
 			NodeList nodeList = node.getChildNodes();
 			for(int j = 0; j < nodeList.getLength(); j++) {
@@ -225,7 +226,7 @@ public class PreferencesManager {
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(document);
-			StreamResult result = new StreamResult(new File(fileName));
+			StreamResult result = new StreamResult(new File(filePath));
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.transform(source, result);
 		} catch (Exception e) {

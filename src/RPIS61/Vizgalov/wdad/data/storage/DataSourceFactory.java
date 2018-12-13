@@ -1,5 +1,7 @@
 package RPIS61.Vizgalov.wdad.data.storage;
 
+import java.lang.Exception;
+
 import javax.sql.DataSource;
 import java.sql.SQLException;
 
@@ -11,7 +13,7 @@ import java.sql.Statement;
 
 import javax.naming.InitialContext;
 //import com.mysql.cj.jdbc.MysqlDataSource;
-//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import RPIS61.Vizgalov.wdad.data.managers.PreferencesManager;
 import RPIS61.Vizgalov.wdad.utils.PreferencesManagerConstants;
@@ -22,9 +24,16 @@ public class DataSourceFactory {
 			String password) throws SQLException {
 		// System.setProperty("java.library.path", "/usr/lib64/libodbc"); ?
 		//private static final String url = "jdbc:mysql://localhost:3306/organization";
-		InitialContext initialContext = new InitialContext();
-		DataSource dataSource = (DataSource)initialContext.lookup(
-				"java:comp/env/jdbc/organization");
+		/*InitialContext initialContext = null;
+		DataSource dataSource = null;
+		try {
+			initialContext = new InitialContext();
+			dataSource = (DataSource)initialContext.lookup(
+					"java:comp/env/jdbc/organization");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}*/
+		MysqlDataSource dataSource = new MysqlDataSource();
 
 		// className ?
 		// driverType ?

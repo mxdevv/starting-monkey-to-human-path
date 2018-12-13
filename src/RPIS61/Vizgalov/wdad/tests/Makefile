@@ -1,2 +1,2 @@
 all:
-	javac -cp ../../../../ JDBC.java
+	javac -cp ../../../../:/usr/share/jdbc-mysql/lib/jdbc-mysql.jar JDBC.java

@@ -4,7 +4,7 @@
 #cd ./src
 #find -type f -name 'Makefile' -exec bash -c 'cd "$(dirname "{}")" && make' \;
 
-cd ./src
+cd ./
 if [ -n "$1" ]; then
 	while [ -n "$1" ]; do
 		find -type f -name $1 -exec bash -c 'cd "$(dirname "{}")" && make' \;
