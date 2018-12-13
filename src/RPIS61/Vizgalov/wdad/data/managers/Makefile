@@ -1,4 +1,4 @@
 NAME=PreferencesManagerTest
 
 all:
-	javac -cp ../../../../../ $(NAME).java
+	#javac -cp ../../../../../ $(NAME).java

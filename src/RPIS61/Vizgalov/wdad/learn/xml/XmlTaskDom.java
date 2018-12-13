@@ -31,7 +31,7 @@ public class XmlTaskDom {
 	DocumentBuilder documentBuilder;
 	Document document;
 	final String filePath =
-			"/root/code/java/3kurs/starting-monkey-to-human-path/src/RPIS61/Vizgalov/wdad/learn/xml/organization.xml";
+			"./organization.xml";
 
 	public XmlTaskDom() {
 		try {
