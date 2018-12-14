@@ -135,9 +135,16 @@ public class JDBCDataManager implements DataManager {
 	}
   public void add(Department department) throws RemoteException {
 		try {
+			int id = 0;
+			statement = connection.prepareStatement(
+				"SELECT COUNT(id) FROM departments;"
+			);
+			resultSet = statement.executeQuery();
+			resultSet.next();
+			id = resultSet.getInt(1);
 			statement = connection.prepareStatement(
 				"INSERT INTO departments VALUES ( " +
-				/* department id */ "-1" + "\' " +
+				id + ", " +
 				"\'" + department.name + "\' " +
 				");"
 			);
@@ -153,7 +160,7 @@ public class JDBCDataManager implements DataManager {
 							department.employees.get(i).hiredate) + "\', " +
 						department.employees.get(i).salary + ", " +
 						"\'" + getJobTitleId(department.employees.get(i).jobTitle) + "\', " +
-						/* id department */ "-1" + "\' " +
+						id + " " +
 					");"
 				);
 				statement.executeUpdate();
