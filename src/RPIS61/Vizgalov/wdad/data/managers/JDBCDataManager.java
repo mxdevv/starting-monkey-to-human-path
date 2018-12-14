@@ -27,6 +27,7 @@ public class JDBCDataManager implements DataManager {
 		try {
 			dataSource = DataSourceFactory.createDataSource();
 			connection = dataSource.getConnection();
+			//todo new connection per method
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
