@@ -34,6 +34,7 @@ public class JDBCDataManager implements DataManager {
 
 	/* non-interface methods */
 	public int getJobTitleId(JobTitle jobTitle) {
+		//todo select to Jobtitles
 		if (jobTitle.name().equals("assistant"))
 			return 1;
 		else if (jobTitle.name().equals("secretary"))
@@ -47,7 +48,8 @@ public class JDBCDataManager implements DataManager {
 		return -1;
 	}
 	private String sql_WHERE(Employee employee) {
-		return 
+		//todo юзай StringBuilder
+		return
 			"WHERE ( " +
 			"  first_name = "       + '\'' + employee.firstName  + "\' " +
 			"  AND second_name = "  + '\'' + employee.secondName + "\' " +
@@ -66,7 +68,7 @@ public class JDBCDataManager implements DataManager {
 		int i = 0, average = 0;
 		try {
 			statement = connection.prepareStatement(
-				"SELECT salary FROM employees");
+				"SELECT AVG(salary) FROM employees"); //todo используй агрегатные функции
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
 				average += resultSet.getInt(1);
@@ -80,13 +82,14 @@ public class JDBCDataManager implements DataManager {
   public int salaryAverage(String departmentName) throws RemoteException {
 		int i = 0, average = 0;
 		try {
+			//todo используй агрегатные функции
+			//todo используй preparedStatement как PreparedStatement, а не как Statement
 			statement = connection.prepareStatement(
  				"SELECT salary FROM employees " +
 				"WHERE departments_id = ANY( " +
 				"  SELECT id FROM departments " +
-				"  WHERE name = " + '\'' + departmentName + '\'' +
-				");"
-			);
+				"  WHERE name = ?"		);
+			statement.setString(1, departmentName);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
 				average += resultSet.getInt(1);
@@ -100,6 +103,7 @@ public class JDBCDataManager implements DataManager {
   public void setJobTitle(Employee employee, JobTitle newJobTitle)
       throws RemoteException {
 		try {
+			//todo используй preparedStatement как PreparedStatement, а не как Statement
 			statement = connection.prepareStatement(
 				"UPDATE employees SET jobtitles_id = "
 					+ getJobTitleId(newJobTitle) + " " +
@@ -113,6 +117,7 @@ public class JDBCDataManager implements DataManager {
   public void setSalary(Employee employee, int newSalary)
       throws RemoteException {
 		try {
+			//todo используй preparedStatement как PreparedStatement, а не как Statement
 			statement = connection.prepareStatement(
 				"UPDATE employees SET salary = " + newSalary + " " +
 				sql_WHERE(employee) + ";"
@@ -124,6 +129,7 @@ public class JDBCDataManager implements DataManager {
 	}
   public void fireEmployee(Employee employee) throws RemoteException {
 		try {
+			//todo используй preparedStatement как PreparedStatement, а не как Statement
 			statement = connection.prepareStatement(
 				"DELETE FROM employees " +
 				sql_WHERE(employee) + ";"
@@ -136,12 +142,15 @@ public class JDBCDataManager implements DataManager {
   public void add(Department department) throws RemoteException {
 		try {
 			int id = 0;
+			//todo автоинкремент для первичных ключей
 			statement = connection.prepareStatement(
-				"SELECT COUNT(id) FROM departments;"
+				"SELECT MAX(id) FROM departments;"
 			);
 			resultSet = statement.executeQuery();
 			resultSet.next();
 			id = resultSet.getInt(1);
+			//todo используй preparedStatement как PreparedStatement, а не как Statement
+
 			statement = connection.prepareStatement(
 				"INSERT INTO departments VALUES ( " +
 				id + ", " +
@@ -150,6 +159,8 @@ public class JDBCDataManager implements DataManager {
 			);
 			statement.executeUpdate();
 			for(int i = 0; i < department.employees.size(); i++) {
+				//todo используй preparedStatement как PreparedStatement, а не как Statement
+
 				statement = connection.prepareStatement(
 					"INSERT INTO employees VALUES ( " +
 					  (i + 1) + ", " +
