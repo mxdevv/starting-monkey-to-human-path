@@ -1,20 +1,155 @@
 :root {
-	--bg-color: #cccccc;
-	--delemiter-color: blue;
-	--activ-region-color: #ffffff;
+	--bg-color: #dddddd;
+	--delemiter-color: #dddddd;
+	--active-view-color: #ffffff;
+	--active-element-color: #fafafa;
 }
 
 body {
 	background: var(--bg-color);
+	font-family: sans-serif;
 }
 
-.employees {
-	padding: 10px;
-	background: var(--activ-region-color);
+input[type='text'] {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	width: 400px;
+	font-size: 16px;
+	padding: 6px 0 4px 10px;
+	border: 1px solid #cecece;
+	background: #F6F6f6;
+	border-radius: 8px;
 }
 
-.employee {
-	width: 500px;
+.full_view {
 	padding: 20px;
+}
+
+.active_view {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.logo {
+	width: 400px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.title {
+	font-size: 16pt;
+	width: 400px;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 0 auto;
+	text-align: center;
+	background: var(--active-view-color);
+}
+
+.user {
+	margin-top: -60px;
+	float: right;
+}
+
+.user p {
+	text-align: center;
+}
+
+.top_space {
+	margin-top: 50px;
+}
+
+.tabs {
+	position: relative;
+	margin: 0 auto;
+}
+
+.tabs_labels {
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.tabs_labels label {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+.tabs label {
+	color: #555;
+	cursor: pointer;
+	display: block;
+	float: left;
+	width: 150px;
+	height: 45px;
+	line-height: 45px;
+	position: relative;
+	top: 2px;
+	text-align: center;
+}
+
+.tabs input#tab_button_find, input#tab_button_register, input#tab_button_other {
+	position: absolute;
+	left: -9999px;
+}
+
+#tab_button_find:checked  ~ .tabs_labels #tab_label_find,
+#tab_button_register:checked  ~ .tabs_labels #tab_label_register,
+#tab_button_other:checked  ~ .tabs_labels #tab_label_other {
+	background: #fff;
+	border-color: #fff;
+	top: 0;
+	z-index: 3;
+	border-radius: 30px;
+}
+
+.tabs_cont > div {
+	position: absolute;
+	left: -9999px;
+	top: 0;
+	opacity: 0;
+	-moz-transition: opacity .5s ease-in-out;
+	-webkit-transition: opacity .5s ease-in-out;
+	transition: opacity .5s ease-in-out;
+}
+
+#tab_button_find:checked ~ .tabs_cont #tab_find,
+#tab_button_register:checked ~ .tabs_cont #tab_register,
+#tab_button_other:checked ~ .tabs_cont #tab_other {
+	position: static;
+	left: 0;
+	opacity: 1;
+}
+
+.tabs_cont {
+	background: var(--active-view-color);
+	padding: 40px;
+	border-radius: 20px;
+	position: relative;
+	z-index: 2;
+}
+
+.find_block {
+}
+
+.find_params {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.tab>.employees {
+	width: 800px;
+	padding: 10px;
+	margin: 0 auto;
+	background: var(--active-element-color);
+	border-radius: 20px;
+}
+
+.employees>.employee {
+	width: 500px;
 	border-bottom: 1px solid var(--delemiter-color);
+	padding: 20px;
 }

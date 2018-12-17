@@ -6,55 +6,121 @@
 		<title>HTML Document</title>
 	</head>
 	<body>
-		<h1>Департамент разработки</h1>
-		
-		<div class="face_page">
+	
+	<div class="full_view">
+			
+			<div class="top">
+			
+				<div class="title">
+					<a>ООО SoftDev</a>
+				</div>
 
-			<div class="employees">
-				<div class="employee">
-					<div class="employees fullname">
-						<b><a>Арсеньев Игорь Владимирович</a></b>
-					</div>
-					<div class="employees department">
-						<a>Отдел проектирования</a>
-					</div>
+				<div class="user">
+					<img src="img/user.png" width=80 height=80>
+					<p>Гость</p>
 				</div>
-				
-				<div class="employee">
-					<div class="employees fullname">
-						<b><a>Ефимов Владислав Александрович</a></b>
+
+			</div>
+
+			<div class="top_space"></div>
+			
+			<div class="logo">
+				<img src="img/logo.png">
+			</div>
+
+			<div class="top_space"></div>
+
+			<div class="active_view">
+
+				<section class="tabs">
+					<input id="tab_button_find" type="radio" name="tab" checked="checked" />
+					<input id="tab_button_register" type="radio" name="tab" />
+					<input id="tab_button_other" type="radio" name="tab" />
+					
+					<div class="tabs_labels">
+						<label for="tab_button_find" id="tab_label_find">Сотрудники</label>
+						<label for="tab_button_register" id="tab_label_register">Регистрация</label>
+						<label for="tab_button_other" id="tab_label_other">Прочее</label>
 					</div>
-					<div class="employees department">
-						<a>Отдел документации</a>
+					<!-- <div style="clear:both"></div> -->
+					
+					<div class="top_space"></div>
+
+					<div class="tabs_cont">
+
+						<div class="tab" id="tab_find">
+
+							<div class="find_block">
+								<input type="text" size="40">
+								<div class="find_params">
+									<input type="radio" name="find_param" value="ФИО" />ФИО
+									<input type="radio" name="find_param" value="Название отдела" />Название отдела
+								</div>
+							</div>
+						
+							<div class="top_space"></div>
+
+							<div class="employees">
+								<div class="employee">
+									<div class="employees fullname">
+										<a>Арсеньев Игорь Владимирович</a>
+									</div>
+									<div class="employees department">
+										<a>Отдел проектирования</a>
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employees fullname">
+										<a>Ефимов Владислав Александрович</a>
+									</div>
+									<div class="employees department">
+										<a>Отдел документации</a>
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employees fullname">
+										<a>Хохлов Аркадий Валентинович</a>
+									</div>
+									<div class="employees department">
+										<a>Отдел разработки требований</a>
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employees fullname">
+										<a>Сметанков Сергей Витальевич</a>
+									</div>
+									<div class="employees department">
+										<a>Отдел тестирования</a>
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employees fullname">
+										<a>Сорокова Светлана Михайловна</a>
+									</div>
+									<div class="employees department">
+										<a>Отдел связей с общественностью</a>
+									</div>
+								</div>
+
+							</div>
+					
+						</div>
+
+						<div class="tab" id="tab_register">
+							Здесь пока ничего нет
+						</div>
+						
+						<div class="tab" id="tab_other">
+							Здесь пока ничего нет
+						</div>
+
 					</div>
-				</div>
-				
-				<div class="employee">
-					<div class="employees fullname">
-						<b><a>Хохлов Аркадий Валентинович</a></b>
-					</div>
-					<div class="employees department">
-						<a>Отдел разработки требований</a>
-					</div>
-				</div>
-				
-				<div class="employee">
-					<div class="employees fullname">
-						<b><a>Сметанков Сергей Витальевич</a></b>
-					</div>
-					<div class="employees department">
-						<a>Отдел тестирования</a>
-					</div>
-				</div>
-				
-				<div class="employee">
-					<div class="employees fullname">
-						<b><a>Сорокова Светлана Михайловна</a></b>
-					</div>
-					<div class="employees department">
-						<a>Отдел связей с общественностью</a>
-					</div>
-				</div>
+
+				</section>
 
 			</div>
 
