@@ -1,5 +1,3 @@
-package RPIS61.Vizgalov.wdad.data.managers;
-
 import java.util.Properties;
 import java.util.Set;
 

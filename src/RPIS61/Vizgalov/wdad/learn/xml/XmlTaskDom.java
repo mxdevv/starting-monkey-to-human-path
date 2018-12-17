@@ -27,11 +27,12 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.NamedNodeMap;
 import org.xml.sax.SAXException;
 
+import RPIS61.Vizgalov.wdad.utils.PathConstants;
+
 public class XmlTaskDom {
 	DocumentBuilder documentBuilder;
 	Document document;
-	final String filePath =
-			"./organization.xml";
+	final String filePath = PathConstants.ORGANIZATION_XML;
 
 	public XmlTaskDom() {
 		try {

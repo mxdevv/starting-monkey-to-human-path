@@ -1,6 +1,0 @@
-#!/bin/bash
-dir="../../../../:/usr/share/jdbc-mysql/lib/jdbc-mysql.jar"
-name="RPIS61.Vizgalov.wdad.tests.JDBC"
-echo -e "\e[32mrun $name\e[0m"
-java -cp $dir $name
-echo ""

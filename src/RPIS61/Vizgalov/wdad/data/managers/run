@@ -1,6 +1,0 @@
-#!/bin/bash
-dir="../../../../../"
-name="RPIS61.Vizgalov.wdad.data.managers.PreferencesManagerTest"
-echo -e "\e[31mcancel run $name\e[0m"
-#java -classpath $dir $name
-echo ""

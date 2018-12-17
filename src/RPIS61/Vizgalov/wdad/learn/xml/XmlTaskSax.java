@@ -11,8 +11,10 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import RPIS61.Vizgalov.wdad.utils.PathConstants;
+
 public class XmlTaskSax {
-	final String fileName = "organization.xml";
+	final String filePath = PathConstants.ORGANIZATION_XML;
 	SAXParserFactory factory;
 	SAXParser saxParser;
 
@@ -57,7 +59,7 @@ public class XmlTaskSax {
 					}
 				}
 			};
-			saxParser.parse(fileName, salaryAverageHandler);
+			saxParser.parse(filePath, salaryAverageHandler);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -110,7 +112,7 @@ public class XmlTaskSax {
 					}
 				}
 			};
-			saxParser.parse(fileName, salaryAverageHandler);
+			saxParser.parse(filePath, salaryAverageHandler);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

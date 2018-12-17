@@ -1,5 +1,3 @@
-package RPIS61.Vizgalov.wdad.tests;
-
 import java.util.List;
 import java.util.ArrayList;
 
@@ -76,3 +74,4 @@ public class JDBC {
 		}
 	}
 }
+

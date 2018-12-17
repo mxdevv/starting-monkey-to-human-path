@@ -1,9 +1,7 @@
-package RPIS61.Vizgalov.wdad.learn.xml;
-
 import RPIS61.Vizgalov.wdad.learn.xml.XmlTaskSax;
 import RPIS61.Vizgalov.wdad.learn.xml.XmlTaskDom;
 
-public class XmlTest {
+public class Xml {
 	public static void main(String[] args) {
 		System.out.println("XmlTest is run.");
 
