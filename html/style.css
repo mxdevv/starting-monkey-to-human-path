@@ -1,0 +1,20 @@
+:root {
+	--bg-color: #cccccc;
+	--delemiter-color: blue;
+	--activ-region-color: #ffffff;
+}
+
+body {
+	background: var(--bg-color);
+}
+
+.employees {
+	padding: 10px;
+	background: var(--activ-region-color);
+}
+
+.employee {
+	width: 500px;
+	padding: 20px;
+	border-bottom: 1px solid var(--delemiter-color);
+}
