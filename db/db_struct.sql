@@ -1,5 +1,5 @@
 CREATE TABLE employees (
-	id INT,
+	id INT AUTO_INCREMENT,
 	first_name VARCHAR(50),
 	second_name VARCHAR(50),
 	birth_date DATE,
@@ -10,13 +10,13 @@ CREATE TABLE employees (
 	PRIMARY KEY(id)
 );
 CREATE TABLE departments (
-	id INT,
+	id INT AUTO_INCREMENT,
 	name VARCHAR(50),
 	Description VARCHAR(1),
 	PRIMARY KEY(id)
 );
 CREATE TABLE jobtitles (
-	id INT,
+	id INT AUTO_INCREMENT,
 	name VARCHAR(100),
 	PRIMARY KEY(id)
 );
