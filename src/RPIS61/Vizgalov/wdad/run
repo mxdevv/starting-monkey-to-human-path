@@ -1,6 +1,6 @@
 #!/bin/bash
 dir="../../../"
 name="RPIS61.Vizgalov.wdad.Application"
-echo "run $name"
+echo -e "\e[32mrun $name\e[0m"
 java -classpath $dir $name
 echo ""

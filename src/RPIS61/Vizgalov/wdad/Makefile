@@ -1,2 +1,2 @@
 all:
-	javac Application.java
+	javac -cp ../../../ Application.java
