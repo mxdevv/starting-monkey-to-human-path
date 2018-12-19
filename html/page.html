@@ -10,20 +10,14 @@
 	<div class="full_view">
 			
 			<div class="top">
-			
-				<div class="title">
-					<a>ООО SoftDev</a>
-				</div>
 
 				<div class="user">
-					<img src="img/user.png" width=80 height=80>
+					<img src="img/user.png">
 					<p>Гость</p>
 				</div>
 
 			</div>
 
-			<div class="top_space"></div>
-			
 			<div class="logo">
 				<img src="img/logo.png">
 			</div>
@@ -53,8 +47,10 @@
 							<div class="find_block">
 								<input type="text" size="40">
 								<div class="find_params">
-									<input type="radio" name="find_param" value="ФИО" />ФИО
-									<input type="radio" name="find_param" value="Название отдела" />Название отдела
+									<input type="radio" name="find_param" id="radio_fullname" checked="checked" />
+									<input type="radio" name="find_param" id="radio_name_department" />
+									<label for="radio_fullname" id="label_fullname">ФИО</label>
+									<label for="radio_name_department" id="label_name_department">Название отдела</label>
 								</div>
 							</div>
 						
@@ -62,47 +58,72 @@
 
 							<div class="employees">
 								<div class="employee">
-									<div class="employees fullname">
-										<a>Арсеньев Игорь Владимирович</a>
+									<div class="employee_text">	
+										<div class="employees_fullname">
+											<a>Арсеньев Игорь Владимирович</a>
+										</div>
+										<div class="employees_department">
+											<a>Отдел проектирования</a>
+										</div>
 									</div>
-									<div class="employees department">
-										<a>Отдел проектирования</a>
-									</div>
-								</div>
-								
-								<div class="employee">
-									<div class="employees fullname">
-										<a>Ефимов Владислав Александрович</a>
-									</div>
-									<div class="employees department">
-										<a>Отдел документации</a>
+									<div class="info">
+										<img src="img/info.png">
 									</div>
 								</div>
 								
 								<div class="employee">
-									<div class="employees fullname">
-										<a>Хохлов Аркадий Валентинович</a>
+									<div class="employee_text">	
+										<div class="employees_fullname">
+											<a>Ефимов Владислав Александрович</a>
+										</div>
+										<div class="employees_department">
+											<a>Отдел документации</a>
+										</div>
 									</div>
-									<div class="employees department">
-										<a>Отдел разработки требований</a>
-									</div>
-								</div>
-								
-								<div class="employee">
-									<div class="employees fullname">
-										<a>Сметанков Сергей Витальевич</a>
-									</div>
-									<div class="employees department">
-										<a>Отдел тестирования</a>
+									<div class="info">
+										<img src="img/info.png">
 									</div>
 								</div>
 								
 								<div class="employee">
-									<div class="employees fullname">
-										<a>Сорокова Светлана Михайловна</a>
+									<div class="employee_text">	
+										<div class="employees_fullname">
+											<a>Хохлов Аркадий Валентинович</a>
+										</div>
+										<div class="employees_department">
+											<a>Отдел разработки требований</a>
+										</div>
 									</div>
-									<div class="employees department">
-										<a>Отдел связей с общественностью</a>
+									<div class="info">
+										<img src="img/info.png">
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employee_text">	
+										<div class="employees_fullname">
+											<a>Сметанков Сергей Витальевич</a>
+										</div>
+										<div class="employees_department">
+											<a>Отдел тестирования</a>
+										</div>
+									</div>
+									<div class="info">
+										<img src="img/info.png">
+									</div>
+								</div>
+								
+								<div class="employee">
+									<div class="employee_text">	
+										<div class="employees_fullname">
+											<a>Сорокова Светлана Михайловна</a>
+										</div>
+										<div class="employees_department">
+											<a>Отдел связей с общественностью</a>
+										</div>
+									</div>
+									<div class="info">
+										<img src="img/info.png">
 									</div>
 								</div>
 

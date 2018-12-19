@@ -1,13 +1,16 @@
 :root {
-	--bg-color: #dddddd;
-	--delemiter-color: #dddddd;
-	--active-view-color: #ffffff;
-	--active-element-color: #fafafa;
+	--bg-color: #ddd;
+	--delemiter-color: #ddd;
+	--active-view-color: #fff;
+	--active-element-color: #fff;
+	--checked-color: #6ae;
 }
 
 body {
 	background: var(--bg-color);
 	font-family: sans-serif;
+	background-image: url(img/bg_tile.png);
+	background-repeat: repeat-xy;
 }
 
 input[type='text'] {
@@ -17,9 +20,8 @@ input[type='text'] {
 	width: 400px;
 	font-size: 16px;
 	padding: 6px 0 4px 10px;
-	border: 1px solid #cecece;
-	background: #F6F6f6;
-	border-radius: 8px;
+	border: 1px solid #bbbbbb;
+	border-radius: 12px;
 }
 
 .full_view {
@@ -38,19 +40,16 @@ input[type='text'] {
 	text-align: center;
 }
 
-.title {
-	font-size: 16pt;
-	width: 400px;
-	padding: 20px;
-	border-radius: 20px;
-	margin: 0 auto;
-	text-align: center;
-	background: var(--active-view-color);
+.top {
 }
 
 .user {
-	margin-top: -60px;
 	float: right;
+}
+
+.user img {
+	height: 64px;
+	width: 64px;
 }
 
 .user p {
@@ -58,7 +57,7 @@ input[type='text'] {
 }
 
 .top_space {
-	margin-top: 50px;
+	margin-top: 40px;
 }
 
 .tabs {
@@ -95,11 +94,24 @@ input[type='text'] {
 	left: -9999px;
 }
 
+.find_params input#radio_fullname, input#radio_name_department {
+	position: absolute;
+	left: -9999px;
+}
+
+#radio_fullname:checked ~ #label_fullname,
+#radio_name_department:checked ~ #label_name_department {
+	top: 0;
+	z-index: 3;
+	border-bottom: 2px solid var(--checked-color);
+	height: 40px;
+}
+
 #tab_button_find:checked  ~ .tabs_labels #tab_label_find,
 #tab_button_register:checked  ~ .tabs_labels #tab_label_register,
 #tab_button_other:checked  ~ .tabs_labels #tab_label_other {
-	background: #fff;
-	border-color: #fff;
+	background: var(--active-view-color);
+	border-color: var(--active-view-color);
 	top: 0;
 	z-index: 3;
 	border-radius: 30px;
@@ -136,6 +148,7 @@ input[type='text'] {
 
 .find_params {
 	width: 300px;
+	height: 45px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -149,7 +162,29 @@ input[type='text'] {
 }
 
 .employees>.employee {
-	width: 500px;
 	border-bottom: 1px solid var(--delemiter-color);
 	padding: 20px;
+}
+
+.employee_text {
+	display: inline-block;
+}
+
+.employees_fullname {
+	font-size: 13pt;
+}
+
+.employees_department {
+	font-size: 10pt;
+}
+
+.info {
+	display: block;
+	display: inline-block;
+	float: right;
+}
+
+.info img {
+	width: 28px;
+	height: 28px;
 }
